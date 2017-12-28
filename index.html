@@ -6,7 +6,7 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/leaflet-search.css">
         <style>
@@ -43,8 +43,8 @@
               });
             } else {
               highlightLayer.setStyle({
-                fillColor: '#9B9B9B',
-                fillOpacity: 1
+                fillColor: '#ffff00',
+                fillOpacity: 0.6
               });
             }
         }
@@ -55,6 +55,11 @@
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         L.control.locate().addTo(map);
         var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
         function setBounds() {
             if (bounds_group.getLayers().length) {
                 map.fitBounds(bounds_group.getBounds());
@@ -87,134 +92,69 @@
         }
 
         function style_LowIncomePercentages0_0(feature) {
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 0.200000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 0.700000 ) {
+            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 0.200000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 1.400000 ) {
                 return {
                 pane: 'pane_LowIncomePercentages0',
                 opacity: 1,
-                color: 'rgba(0,0,0,0.8)',
+                color: 'rgba(0,0,0,0.6)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,0.8)',
+                fillColor: 'rgba(255,255,255,0.6)',
             }
             }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 0.700000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 0.900000 ) {
+            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 1.400000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 2.400000 ) {
                 return {
                 pane: 'pane_LowIncomePercentages0',
                 opacity: 1,
-                color: 'rgba(0,0,0,0.8)',
+                color: 'rgba(0,0,0,0.6)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fillOpacity: 1,
-                fillColor: 'rgba(237,227,243,0.8)',
+                fillColor: 'rgba(214,193,230,0.6)',
             }
             }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 0.900000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 1.100000 ) {
+            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 2.400000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 3.700000 ) {
                 return {
                 pane: 'pane_LowIncomePercentages0',
                 opacity: 1,
-                color: 'rgba(0,0,0,0.8)',
+                color: 'rgba(0,0,0,0.6)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fillOpacity: 1,
-                fillColor: 'rgba(219,200,232,0.8)',
+                fillColor: 'rgba(174,132,205,0.6)',
             }
             }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 1.100000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 1.380000 ) {
+            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 3.700000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 5.500000 ) {
                 return {
                 pane: 'pane_LowIncomePercentages0',
                 opacity: 1,
-                color: 'rgba(0,0,0,0.8)',
+                color: 'rgba(0,0,0,0.6)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fillOpacity: 1,
-                fillColor: 'rgba(201,173,221,0.8)',
+                fillColor: 'rgba(134,70,180,0.6)',
             }
             }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 1.380000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 1.700000 ) {
+            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 5.500000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 7.400000 ) {
                 return {
                 pane: 'pane_LowIncomePercentages0',
                 opacity: 1,
-                color: 'rgba(0,0,0,0.8)',
+                color: 'rgba(0,0,0,0.6)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fillOpacity: 1,
-                fillColor: 'rgba(183,145,210,0.8)',
-            }
-            }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 1.700000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 2.200000 ) {
-                return {
-                pane: 'pane_LowIncomePercentages0',
-                opacity: 1,
-                color: 'rgba(0,0,0,0.8)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fillOpacity: 1,
-                fillColor: 'rgba(165,118,199,0.8)',
-            }
-            }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 2.200000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 2.400000 ) {
-                return {
-                pane: 'pane_LowIncomePercentages0',
-                opacity: 1,
-                color: 'rgba(0,0,0,0.8)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fillOpacity: 1,
-                fillColor: 'rgba(147,91,188,0.8)',
-            }
-            }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 2.400000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 2.900000 ) {
-                return {
-                pane: 'pane_LowIncomePercentages0',
-                opacity: 1,
-                color: 'rgba(0,0,0,0.8)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fillOpacity: 1,
-                fillColor: 'rgba(129,63,177,0.8)',
-            }
-            }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 2.900000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 3.700000 ) {
-                return {
-                pane: 'pane_LowIncomePercentages0',
-                opacity: 1,
-                color: 'rgba(0,0,0,0.8)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fillOpacity: 1,
-                fillColor: 'rgba(111,36,166,0.8)',
-            }
-            }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 3.700000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 7.400000 ) {
-                return {
-                pane: 'pane_LowIncomePercentages0',
-                opacity: 1,
-                color: 'rgba(0,0,0,0.8)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fillOpacity: 1,
-                fillColor: 'rgba(94,9,155,0.8)',
+                fillColor: 'rgba(94,9,155,0.6)',
             }
             }
         }
@@ -230,7 +170,7 @@
         bounds_group.addLayer(layer_LowIncomePercentages0);
         map.addLayer(layer_LowIncomePercentages0);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Low Income Percentages<br /><table><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_02070.png" /></td><td> 0.2 - 0.7%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_07091.png" /></td><td> 0.7 - 0.9%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_09112.png" /></td><td> 0.9 - 1.1%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_11143.png" /></td><td> 1.1 - 1.4%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_14174.png" /></td><td> 1.4 - 1.7%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_17225.png" /></td><td> 1.7 - 2.2%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_22246.png" /></td><td> 2.2 - 2.4%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_24297.png" /></td><td> 2.4 - 2.9%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_29378.png" /></td><td> 2.9 - 3.7%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_37749.png" /></td><td> 3.7 - 7.4%</td></tr></table>': layer_LowIncomePercentages0,}).addTo(map);
+        L.control.layers(baseMaps,{'Low Income Percentages<br /><table><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_02140.png" /></td><td> 0.2 - 1.4%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_14241.png" /></td><td> 1.4 - 2.4%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_24372.png" /></td><td> 2.4 - 3.7%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_37553.png" /></td><td> 3.7 - 5.5%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_55744.png" /></td><td> 5.5 - 7.4%</td></tr></table>': layer_LowIncomePercentages0,}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_LowIncomePercentages0,
