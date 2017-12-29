@@ -6,7 +6,7 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/leaflet-search.css">
         <style>
@@ -32,6 +32,7 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-search.js"></script>
         <script src="data/LowIncomePercentages0.js"></script>
+        <script src="data/OuterRingRoad1.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -92,7 +93,7 @@
         }
 
         function style_LowIncomePercentages0_0(feature) {
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 0.200000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 1.400000 ) {
+            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 0.200000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 0.900000 ) {
                 return {
                 pane: 'pane_LowIncomePercentages0',
                 opacity: 1,
@@ -105,7 +106,7 @@
                 fillColor: 'rgba(255,255,255,0.6)',
             }
             }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 1.400000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 2.400000 ) {
+            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 0.900000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 1.380000 ) {
                 return {
                 pane: 'pane_LowIncomePercentages0',
                 opacity: 1,
@@ -118,7 +119,7 @@
                 fillColor: 'rgba(214,193,230,0.6)',
             }
             }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 2.400000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 3.700000 ) {
+            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 1.380000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 2.200000 ) {
                 return {
                 pane: 'pane_LowIncomePercentages0',
                 opacity: 1,
@@ -131,7 +132,7 @@
                 fillColor: 'rgba(174,132,205,0.6)',
             }
             }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 3.700000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 5.500000 ) {
+            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 2.200000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 2.900000 ) {
                 return {
                 pane: 'pane_LowIncomePercentages0',
                 opacity: 1,
@@ -144,7 +145,7 @@
                 fillColor: 'rgba(134,70,180,0.6)',
             }
             }
-            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 5.500000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 7.400000 ) {
+            if (feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] >= 2.900000 && feature.properties['q2wHide_ward_data_master_004_assets_household_with_none_of_assets_mentioned_11'] <= 7.400000 ) {
                 return {
                 pane: 'pane_LowIncomePercentages0',
                 opacity: 1,
@@ -169,8 +170,48 @@
     });
         bounds_group.addLayer(layer_LowIncomePercentages0);
         map.addLayer(layer_LowIncomePercentages0);
+        function pop_OuterRingRoad1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_OuterRingRoad1_0() {
+            return {
+                pane: 'pane_OuterRingRoad1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_OuterRingRoad1');
+        map.getPane('pane_OuterRingRoad1').style.zIndex = 401;
+        map.getPane('pane_OuterRingRoad1').style['mix-blend-mode'] = 'normal';
+    var layer_OuterRingRoad1 = new L.geoJson(json_OuterRingRoad1, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_OuterRingRoad1',
+        onEachFeature: pop_OuterRingRoad1,
+        style: style_OuterRingRoad1_0,
+    });
+        bounds_group.addLayer(layer_OuterRingRoad1);
+        map.addLayer(layer_OuterRingRoad1);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Low Income Percentages<br /><table><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_02140.png" /></td><td> 0.2 - 1.4%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_14241.png" /></td><td> 1.4 - 2.4%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_24372.png" /></td><td> 2.4 - 3.7%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_37553.png" /></td><td> 3.7 - 5.5%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_55744.png" /></td><td> 5.5 - 7.4%</td></tr></table>': layer_LowIncomePercentages0,}).addTo(map);
+        L.control.layers(baseMaps,{'Low Income Percentages<br /><table><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_0200900.png" /></td><td> 0.20 - 0.90%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_0901381.png" /></td><td> 0.90 - 1.38%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_1382202.png" /></td><td> 1.38 - 2.20%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_2202903.png" /></td><td> 2.20 - 2.90%</td></tr><tr><td style="text-align: center;"><img src="legend/LowIncomePercentages0_2907404.png" /></td><td> 2.90 - 7.40%</td></tr></table>': layer_LowIncomePercentages0,'<img src="legend/OuterRingRoad1.png" /> Outer Ring Road': layer_OuterRingRoad1}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_LowIncomePercentages0,
